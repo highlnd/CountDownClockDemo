@@ -18,6 +18,7 @@
 		87850D8116E872CA00144F0C /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 87850D8016E872CA00144F0C /* Default-568h@2x.png */; };
 		87850D8416E872CA00144F0C /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87850D8216E872CA00144F0C /* MainStoryboard.storyboard */; };
 		87850D8716E872CA00144F0C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87850D8616E872CA00144F0C /* ViewController.m */; };
+		87850D9016E8731000144F0C /* CountDownClock.m in Sources */ = {isa = PBXBuildFile; fileRef = 87850D8F16E8731000144F0C /* CountDownClock.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,8 @@
 		87850D8316E872CA00144F0C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		87850D8516E872CA00144F0C /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		87850D8616E872CA00144F0C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		87850D8E16E8731000144F0C /* CountDownClock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CountDownClock.h; path = CountDownClock/CountDownClock.h; sourceTree = "<group>"; };
+		87850D8F16E8731000144F0C /* CountDownClock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CountDownClock.m; path = CountDownClock/CountDownClock.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +86,7 @@
 		87850D7016E872CA00144F0C /* CountDownClockDemo */ = {
 			isa = PBXGroup;
 			children = (
+				87850D8D16E872DA00144F0C /* CountDownClock */,
 				87850D7916E872CA00144F0C /* AppDelegate.h */,
 				87850D7A16E872CA00144F0C /* AppDelegate.m */,
 				87850D8216E872CA00144F0C /* MainStoryboard.storyboard */,
@@ -105,6 +109,15 @@
 				87850D8016E872CA00144F0C /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		87850D8D16E872DA00144F0C /* CountDownClock */ = {
+			isa = PBXGroup;
+			children = (
+				87850D8E16E8731000144F0C /* CountDownClock.h */,
+				87850D8F16E8731000144F0C /* CountDownClock.m */,
+			);
+			name = CountDownClock;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,6 +189,7 @@
 				87850D7716E872CA00144F0C /* main.m in Sources */,
 				87850D7B16E872CA00144F0C /* AppDelegate.m in Sources */,
 				87850D8716E872CA00144F0C /* ViewController.m in Sources */,
+				87850D9016E8731000144F0C /* CountDownClock.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

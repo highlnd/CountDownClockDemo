@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CountDownClock.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <CountDownClockDelegate>
+@property (weak, nonatomic) IBOutlet CountDownClock *countDownClock;
 
 @end
