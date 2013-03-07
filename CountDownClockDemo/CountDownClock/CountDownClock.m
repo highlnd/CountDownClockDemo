@@ -51,7 +51,8 @@
     CGContextSetFillColorWithColor(context, self.textColor.CGColor);
     
     NSString *myText = [NSString stringWithFormat:@"%.2d:%.2d:%.2d", [self.components hour], [self.components minute], [self.components second]];
-    [myText drawInRect:rect withFont:self.textFont];
+    //[myText drawInRect:rect withFont:self.textFont];
+    [myText drawInRect:rect withFont:self.textFont lineBreakMode:NSLineBreakByClipping alignment:NSTextAlignmentCenter];
 }
 
 - (void)updateCountDown:(NSTimer *)timer {

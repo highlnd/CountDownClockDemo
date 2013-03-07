@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface ViewController ()
 
@@ -17,10 +18,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.countDownClock.endDate = [[NSDate date] dateByAddingTimeInterval:3600.0];
+    self.countDownClock.endDate = [[NSDate date] dateByAddingTimeInterval:3675.0];
     self.countDownClock.delegate = self;
     self.countDownClock.textFont = [UIFont fontWithName:@"Helvetica" size:40.0];
     self.countDownClock.textColor = [UIColor redColor];
+    self.countDownClock.layer.borderColor = [UIColor blackColor].CGColor;
+    self.countDownClock.layer.borderWidth = 2.0;
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
