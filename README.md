@@ -8,7 +8,7 @@ CountDownClock uses ARC and must be built with Xcode 4.5 or greater.
 Installation
 ====
 
-Download the source from this repository and then `CountDownClock.h` and `CountDownClock.m` to your project.
+Download the source from this repository and then add `CountDownClock.h` and `CountDownClock.m` to your project.
 
 Usage
 ====
@@ -30,7 +30,8 @@ In your UIViewController subclass allocate an instance of the CountDownClock and
 If you want to know when the `CountDownClock` instance counts down all the way you can make your UIViewController subclass respond to the `CountDownClockDelegate` protocol and implement the `countDownClockDidFinish:` method. This will be called and passed to it the instance of the `CountDownClock` that has finished;
 
     - (void)countDownClockDidFinish:(CountDownClock *)sender {
-        self.countDownComplete.alpha = 1.0;
+        NSLog(@"Countdown complete!");
+        // Do something interesting
     }
     
 See the example code in this project for more information about usage.
