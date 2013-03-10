@@ -27,7 +27,7 @@ In your UIViewController subclass allocate an instance of the CountDownClock and
 
     }
     
-If you want to know when the `CountDownClock` instance counts down all the way you can make your UIViewController subclass respond to the `CountDownClockDelegate` protocol and implement the `countDownClockDidFinish:` method. This will be called and passed to it the instance of the `CountDownClock` that has finished;
+If you want to know when the `CountDownClock` instance counts down all the way you can make your UIViewController subclass respond to the `CountDownClockDelegate` protocol, set the `CountDownClock` instances delegate property to your UIViewController subclass and implement the `countDownClockDidFinish:` method. This will be called and passed to it the instance of the `CountDownClock` that has finished;
 
     - (void)countDownClockDidFinish:(CountDownClock *)sender {
         NSLog(@"Countdown complete!");
