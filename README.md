@@ -21,7 +21,7 @@ In your UIViewController subclass allocate an instance of the CountDownClock and
         
         // Sets the CountDownClock with an end date of 60 seconds from now, the color red
         // and 60 point font
-        self.countDownClock.endDate = [NSDate dateWithTimeIntervalSinceNow:60];
+        [self.countDownClock startClockWithDuration:60];
         self.countDownClock.textFont = [UIFont fontWithName:@"Helvetica" size:60.0];
         self.countDownClock.textColor = [UIColor redColor];
 

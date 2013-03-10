@@ -12,10 +12,13 @@
 
 @interface CountDownClock : UIView
 
-@property (nonatomic, strong) NSDate *endDate;
 @property (nonatomic, strong) UIColor *textColor;
 @property (nonatomic, strong) UIFont *textFont;
 @property (nonatomic, strong) id <CountDownClockDelegate> delegate;
+
+- (void)startClockWithDuration:(NSTimeInterval)timeInterval;
+- (NSTimeInterval)secondsUntilCountDownWillEnd;
+- (NSDate *)dateCountDownWillEnd;
 
 @end
 

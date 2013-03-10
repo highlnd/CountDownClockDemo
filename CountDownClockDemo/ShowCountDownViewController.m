@@ -20,13 +20,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.countDownClock.endDate = [NSDate dateWithTimeIntervalSinceNow:self.countDownSeconds];
     self.countDownClock.delegate = self;
     self.countDownClock.textFont = [UIFont fontWithName:@"Helvetica" size:60.0];
     self.countDownClock.textColor = [UIColor redColor];
     self.countDownClock.layer.borderColor = [UIColor blackColor].CGColor;
     self.countDownClock.layer.borderWidth = 2.0;
-    
+    [self.countDownClock startClockWithDuration:self.countDownSeconds];    
     self.countDownComplete.alpha = 0;
 }
 

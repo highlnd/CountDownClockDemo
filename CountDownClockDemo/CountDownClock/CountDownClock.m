@@ -12,6 +12,7 @@
 @property (nonatomic, strong) NSTimer *timer;
 @property (nonatomic, strong) NSCalendar *calendar;
 @property (nonatomic, strong) NSDateComponents *components;
+@property (nonatomic, strong) NSDate *endDate;
 @property (nonatomic) BOOL active;
 @end
 
@@ -32,13 +33,14 @@
 
 - (void)setup
 {
-    self.active = YES;
+    self.active = NO;
     self.calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
     self.timer = [NSTimer scheduledTimerWithTimeInterval:0.1
                                                   target:self
                                                 selector:@selector(updateCountDown:)
                                                 userInfo:nil
                                                  repeats:YES];
+    self.endDate = [NSDate date];
 }
 
 - (void)drawRect:(CGRect)rect
@@ -77,5 +79,22 @@
     [self setNeedsDisplay];
 }
 
+- (void)startClockWithDuration:(NSTimeInterval)durationInSeconds
+{
+    self.endDate = [NSDate dateWithTimeIntervalSinceNow:durationInSeconds];
+    self.active = YES;
+}
+
+- (NSDate *)dateCountDownWillEnd {
+    return self.endDate;
+}
+
+- (NSTimeInterval)secondsUntilCountDownWillEnd {
+    NSTimeInterval seconds = [self.endDate timeIntervalSinceNow] * -1;
+    if (seconds < 0) {
+        seconds = 0;
+    }
+    return seconds;
+}
 
 @end
