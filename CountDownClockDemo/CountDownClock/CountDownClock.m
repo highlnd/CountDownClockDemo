@@ -30,45 +30,52 @@
     [self setup];
 }
 
-- (void)setup {
-   // NSLog(@"Test");
+- (void)setup
+{
     self.active = YES;
+    self.calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
     self.timer = [NSTimer scheduledTimerWithTimeInterval:0.1
                                                   target:self
                                                 selector:@selector(updateCountDown:)
                                                 userInfo:nil
                                                  repeats:YES];
-    
-    self.calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
 }
 
 - (void)drawRect:(CGRect)rect
 {
     CGContextRef context = UIGraphicsGetCurrentContext();
-    //CGContextSetRGBStrokeColor(context, 0.0, 0.0, 0.0, 1.0);
-   // CGContextSetRGBFillColor(context, 0.0, 0.0, 0.0, 1.0);
-   // CGContextFillRect(context, rect);
     CGContextSetFillColorWithColor(context, self.textColor.CGColor);
     
-    NSString *myText = [NSString stringWithFormat:@"%.2d:%.2d:%.2d", [self.components hour], [self.components minute], [self.components second]];
-    //[myText drawInRect:rect withFont:self.textFont];
+    int hour = 0;
+    int minute = 0;
+    int second = 0;
+    
+    if (self.active) {
+        hour = [self.components hour];
+        minute = [self.components minute];
+        second = [self.components second];
+    }
+    
+    NSString *myText = [NSString stringWithFormat:@"%.2d:%.2d:%.2d", hour, minute, second];
     [myText drawInRect:rect withFont:self.textFont lineBreakMode:NSLineBreakByClipping alignment:NSTextAlignmentCenter];
+
 }
 
 - (void)updateCountDown:(NSTimer *)timer {
-    //NSLog(@"updateCountDown");
-    
-    NSUInteger calendarUnits = NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit;
 
+    NSUInteger calendarUnits = NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit;
+    
     if (self.active) {
         self.components = [self.calendar components:calendarUnits fromDate:[NSDate date] toDate:self.endDate options:0];
-        [self setNeedsDisplay];
         
         if ([self.endDate timeIntervalSinceNow] < 0) {
             self.active = NO;
             [self.delegate countDownClockDidFinish:self];
         }
     }
+    
+    [self setNeedsDisplay];
 }
+
 
 @end

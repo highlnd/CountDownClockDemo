@@ -6,25 +6,28 @@
 //  Copyright (c) 2013 Mike Kennedy. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "ShowCountDownViewController.h"
 #import <QuartzCore/QuartzCore.h>
 
-@interface ViewController ()
+@interface ShowCountDownViewController ()
 
 @end
 
-@implementation ViewController
+@implementation ShowCountDownViewController
+
+@synthesize countDownSeconds = _countDownSeconds;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.countDownClock.endDate = [[NSDate date] dateByAddingTimeInterval:3675.0];
+    self.countDownClock.endDate = [NSDate dateWithTimeIntervalSinceNow:self.countDownSeconds];
     self.countDownClock.delegate = self;
-    self.countDownClock.textFont = [UIFont fontWithName:@"Helvetica" size:40.0];
+    self.countDownClock.textFont = [UIFont fontWithName:@"Helvetica" size:60.0];
     self.countDownClock.textColor = [UIColor redColor];
     self.countDownClock.layer.borderColor = [UIColor blackColor].CGColor;
     self.countDownClock.layer.borderWidth = 2.0;
-	// Do any additional setup after loading the view, typically from a nib.
+    
+    self.countDownComplete.alpha = 0;
 }
 
 - (void)didReceiveMemoryWarning
@@ -34,7 +37,7 @@
 }
 
 - (void)countDownClockDidFinish:(CountDownClock *)sender {
-    NSLog(@"Clock finished!");
+    self.countDownComplete.alpha = 1.0;
 }
 
 @end

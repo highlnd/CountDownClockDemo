@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  ShowCountDownViewController.h
 //  CountDownClockDemo
 //
 //  Created by Mike Kennedy on 3/6/13.
@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "CountDownClock.h"
 
-@interface ViewController : UIViewController <CountDownClockDelegate>
+@interface ShowCountDownViewController : UIViewController <CountDownClockDelegate>
 @property (weak, nonatomic) IBOutlet CountDownClock *countDownClock;
+@property (weak, nonatomic) IBOutlet UILabel *countDownComplete;
+@property (nonatomic) NSTimeInterval countDownSeconds;
 
 @end
