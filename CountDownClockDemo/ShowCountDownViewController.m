@@ -1,5 +1,5 @@
 //
-//  ViewController.m
+//  ShowCountDownViewController.m
 //  CountDownClockDemo
 //
 //  Created by Mike Kennedy on 3/6/13.
